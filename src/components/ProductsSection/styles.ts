@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import * as Dialog from '@radix-ui/react-dialog'
 
 export const ProductsArea = styled.div`
     max-width: 1220px;
@@ -56,5 +57,84 @@ export const ProductsArea = styled.div`
                 }
             }
         }
+    }
+`
+
+export const Overlay = styled(Dialog.Overlay)`
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+`
+
+export const ModalHeader = styled.header`
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    background-color: ${props => props.theme['--black']};
+    color: ${props => props.theme['--white']};
+    padding: 1rem;
+
+    svg{
+        color: ${props => props.theme['--green']};
+    }
+`
+
+export const DialogContent = styled(Dialog.Content)`
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 4px;
+    background-color: ${props => props.theme['--white']};
+
+    section{
+        display: flex;
+        gap: 1rem;
+        padding: 2rem;
+
+        img{
+            min-height: 22rem;
+        }
+    }
+`
+
+export const ModalContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        span{
+            font-weight: bold;
+        }
+
+        button{
+            flex: 1;
+            border: 0;
+            background-color: ${props => props.theme['--purple']};
+            color: ${props => props.theme['--white']};
+            font-weight: bold;
+            padding: 1rem;
+        }
+    }
+`
+
+export const RadioContainer = styled.div`
+    display: flex;
+    gap: 2rem;
+
+    div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
     }
 `
