@@ -18,7 +18,8 @@ interface ProductContextSchema{
     productsList: ProductSchema[],
     filterProductListByCategory: Function
     hasFilter: boolean,
-    clearFilter: Function
+    clearFilter: Function,
+    filterBySearchForm: Function
 }
 
 export const ProductsContext = createContext({} as ProductContextSchema)
@@ -37,6 +38,7 @@ export function ProductsProvider({ children }: ProductsProviderProps) {
             })
     }, [])
 
+
     function filterProductListByCategory(category: string){
 
         const filteredList = listWithNoFilter.filter(product => product.category === category)
@@ -51,9 +53,31 @@ export function ProductsProvider({ children }: ProductsProviderProps) {
         setProductsList(listWithNoFilter)
     }
 
+    function filterBySearchForm(query: string){
+
+        const newList = listWithNoFilter.filter(product => {
+
+            const { title, description, category } = product
+
+            const lowerCaseQuery = query.toLowerCase()
+
+            return title.toLowerCase().includes(lowerCaseQuery) || description.toLowerCase().includes(lowerCaseQuery) || category.toLowerCase().includes(lowerCaseQuery)
+
+        })
+
+        setProductsList(newList)
+        
+        if(query !== ''){
+            setHasFilter(true)
+        }else{
+            setHasFilter(false)
+        }
+        
+    }
+
     return (
 
-        <ProductsContext.Provider value={{productsList, filterProductListByCategory, hasFilter, clearFilter}} >
+        <ProductsContext.Provider value={{productsList, filterProductListByCategory, hasFilter, clearFilter, filterBySearchForm }} >
 
             {children}
 

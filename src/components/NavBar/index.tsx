@@ -1,5 +1,12 @@
 import { Container, NavContainer } from "./styles"
 import meteoraLogo from '../../assets/meteora-logo.svg'
+import { useForm, SubmitHandler } from 'react-hook-form'
+import { useContext } from "react"
+import { ProductsContext } from '../../contexts/productsContext'
+
+interface SearchFormSchema {
+    queryInput: string
+}
 
 export function NavBar() {
 
@@ -26,6 +33,19 @@ export function NavBar() {
         }
     ]
 
+    const { filterBySearchForm } = useContext(ProductsContext)
+
+    const { register, handleSubmit } = useForm({
+        defaultValues: {
+            queryInput: ''
+        }
+    })
+
+    const onSubmit: SubmitHandler<SearchFormSchema> = data => {
+        filterBySearchForm(data.queryInput)
+    }
+    
+
     return (
         <NavContainer>
 
@@ -43,10 +63,10 @@ export function NavBar() {
 
                 </div>
 
-                <form>
+                <form onSubmit={handleSubmit(onSubmit)}>
 
-                    <input type="text" placeholder='Digite o produto' />
-                    <button type='submit'>Buscar</button>
+                    <input type="text" placeholder='Digite o produto' {...register('queryInput')} />
+                    <button type="submit">Buscar</button>
 
                 </form>
 

@@ -15,8 +15,11 @@ export function Home() {
 
     return (
         <>
+            <ProductsProvider>
 
-        <NavBar />
+                <NavBar />
+
+            </ProductsProvider>
 
             <CarrosselContainer>
                 <img src={Banner1} alt="" />
