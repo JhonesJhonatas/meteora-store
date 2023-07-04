@@ -1,6 +1,5 @@
-import { CarrosselContainer, Container, FacilitieBox, FacilitiesArea, FooterConteiner, NavContainer, NewsLetterArea } from './styles'
+import { CarrosselContainer, FacilitieBox, FacilitiesArea, FooterConteiner } from './styles'
 
-import meteoraLogo from '../../assets/meteora-logo.svg'
 import Banner1 from '../../assets/banners/banner-1.png'
 import pixImg from '../../assets/facilites/pix.svg'
 import changeImg from '../../assets/facilites/change.svg'
@@ -8,60 +7,16 @@ import flowerImg from '../../assets/facilites/flower.svg'
 import { ProductsSection } from '../../components/ProductsSection'
 import { ProductsProvider } from '../../contexts/productsContext'
 import { CategorysSection } from '../../components/CategorysSection'
+import { NewsLetterSection } from '../../components/NewsLetterSection'
+import { NavBar } from '../../components/NavBar'
 
 export function Home() {
 
-    const navLinks = [
-        {
-            id: '1',
-            title: 'Home',
-            path: '#'
-        },
-        {
-            id: '2',
-            title: 'Nossas lojas',
-            path: '#'
-        },
-        {
-            id: '3',
-            title: 'Novidades',
-            path: '#'
-        },
-        {
-            id: '4',
-            title: 'Promoções',
-            path: '#'
-        }
-    ]
 
     return (
         <>
-            <NavContainer>
 
-                <Container>
-
-                    <div>
-
-                        <img src={meteoraLogo} alt="Meteora Logo" />
-
-                        {navLinks.map(item => {
-                            return (
-                                <a key={item.id} href={item.path}>{item.title}</a>
-                            )
-                        })}
-
-                    </div>
-
-                    <form>
-
-                        <input type="text" placeholder='Digite o produto' />
-                        <button type='submit'>Buscar</button>
-
-                    </form>
-
-                </Container>
-
-            </NavContainer>
+        <NavBar />
 
             <CarrosselContainer>
                 <img src={Banner1} alt="" />
@@ -103,16 +58,7 @@ export function Home() {
                 </section>
             </FacilitiesArea>
 
-            <NewsLetterArea>
-
-                <h2>Quer receber nossas novidades, promoções exclusivas e 10% OFF na primeira compra? Cadastre-se!</h2>
-
-                <form>
-                    <input type="text" placeholder='Digite seu email' />
-                    <button>Enviar</button>
-                </form>
-
-            </NewsLetterArea>
+            <NewsLetterSection />
 
             <FooterConteiner>
                 <span>2023 © Desenvolvido por Jhones | Projeto fictício sem fins comerciais.</span>

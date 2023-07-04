@@ -51,7 +51,7 @@ export function ProductsSection() {
                                                     <ModalContent>
                                                         <h3>{product.title}</h3>
 
-                                                        <p>{product.title}</p>
+                                                        <p>{product.description}</p>
 
                                                         <hr />
 
