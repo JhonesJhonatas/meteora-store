@@ -7,6 +7,10 @@ export const CarrosselContainer = styled.div`
 
     img{
         max-width: 1220px;
+
+        @media (max-width: 800px) {
+            max-width: 100%;
+        }
     }
 `
 

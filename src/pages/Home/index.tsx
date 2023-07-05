@@ -19,13 +19,9 @@ export function Home() {
 
                 <NavBar />
 
-            </ProductsProvider>
-
-            <CarrosselContainer>
-                <img src={Banner1} alt="" />
-            </CarrosselContainer>
-
-            <ProductsProvider>
+                <CarrosselContainer>
+                    <img src={Banner1} alt="" />
+                </CarrosselContainer>
 
                 <CategorysSection />
 
@@ -60,6 +56,7 @@ export function Home() {
                     </FacilitieBox>
                 </section>
             </FacilitiesArea>
+         
 
             <NewsLetterSection />
 

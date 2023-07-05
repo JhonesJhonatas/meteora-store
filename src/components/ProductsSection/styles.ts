@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import * as Dialog from '@radix-ui/react-dialog'
 
 export const ProductsArea = styled.div`
-    max-width: 1220px;
+    max-width: 1290px;
     margin: 0 auto;
 
     h1{
@@ -15,6 +15,10 @@ export const ProductsArea = styled.div`
         flex-wrap: wrap;
         gap: 2rem;
         justify-content: space-between;
+
+        @media(max-width: 1120px){
+            justify-content: center;
+        }
 
         div{
             max-width: 22rem;
@@ -94,10 +98,18 @@ export const DialogContent = styled(Dialog.Content)`
     section{
         display: flex;
         gap: 1rem;
-        padding: 2rem;
+        padding: 1rem;
+
+        @media(max-width: 800px){
+            flex-wrap: wrap;
+        }
 
         img{
             min-height: 22rem;
+
+            @media(max-width: 800px){
+                max-height: 10rem;
+            }
         }
     }
 `
@@ -106,11 +118,14 @@ export const ModalContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 0.5rem;
+
+    
 
     form{
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.5rem;
 
         span{
             font-weight: bold;

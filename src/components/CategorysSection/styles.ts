@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const CategorySection = styled.div`
-    max-width: 1220px;
+    max-width: 1290px;
     margin: 0 auto;
 
     h1{
@@ -10,7 +10,9 @@ export const CategorySection = styled.div`
     }
 
     section{
+        padding: 2rem;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         gap: 1rem;
 
